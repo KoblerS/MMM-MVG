@@ -1,0 +1,21 @@
+{
+  "name": "mmm-mvg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mmm-mvg.js",
+  "author": "Simon Kobler",
+  "license": "MIT",
+  "homepage": "https://github.com/KoblerS/MMM-MVG",
+  "keywords": [
+    "magic mirror",
+    "public transport",
+    "mvv",
+    "mvg"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KoblerS/MMM-MVG"
+  },
+  "contributors": [],
+  "dependencies": {}
+}

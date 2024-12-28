@@ -1,0 +1,22 @@
+name: Branch push
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      # Required to request the OIDC JWT Token
+      id-token: write
+      # Required when GH token is used to authenticate with private repo
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Draft release
+        uses: KoblerS/release-drafter@v1
+        with:
+          version-prefix: ''

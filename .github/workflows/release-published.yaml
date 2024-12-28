@@ -1,0 +1,29 @@
+name: Release published
+on:
+  release:
+    types:
+      - released
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      # Required to request the OIDC JWT Token
+      id-token: write
+      # Required when GH token is used to authenticate with private repo
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update version in package.json
+        run: |
+          jq ".version = \"${{ github.event.release.tag_name}}\"" package.json > tmp.json && mv tmp.json package.json
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add package.json
+          git commit -m "Update version to ${{ github.event.release.tag_name}}"
+          git push

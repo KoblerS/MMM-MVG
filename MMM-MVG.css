@@ -1,0 +1,159 @@
+/*
+ * MMM-MVG
+ *
+ * By Simon Kobler
+ * MIT Licensed.
+ *
+ */
+
+.stationColumn {
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 240px;
+}
+
+.MMM-MVG {
+    max-width: 400px;
+}
+
+.MMM-MVG table {
+    border-spacing: 0 .3em;
+    overflow: hidden;
+}
+
+.MMM-MVG tr.normal {
+    color: white;
+}
+
+.MMM-MVG tr.gray {
+    color: dimgray;
+}
+
+.MMM-MVG td.tram {
+    background: url(resources/tram.svg) no-repeat 0 0;
+    width: 30px;
+    padding-bottom: 5px;
+    background-size: 25px;
+}
+
+.MMM-MVG td.sbahn {
+    background: url(resources/s-bahn.svg) no-repeat 0 0;
+    width: 30px;
+    padding-bottom: 5px;
+    background-size: 25px;
+}
+
+.MMM-MVG td.bus, .MMM-MVG td.regional_bus {
+    background: url(resources/bus.svg) no-repeat 0 0;
+    width: 30px;
+    padding-bottom: 5px;
+    background-size: 25px;
+}
+
+.MMM-MVG td.ubahn {
+    background: url(resources/u-bahn.svg) no-repeat 0 0;
+    width: 30px;
+    padding-bottom: 5px;
+    background-size: 25px;
+}
+
+.MMM-MVG td.empty {
+    color: dimgray;
+    font-size: 16px;
+    width: 30px;
+    padding-bottom: 5px;
+    background-size: 25px;
+}
+
+.MMM-MVG td.timing {
+    text-align: right;
+}
+
+.U1 {
+    --bg: #52822F;
+}
+.U2 {
+    --bg: #C2243B;
+}
+.U3 {
+    --bg: #EC6726;
+}
+.U4 {
+    --bg: #00A984;
+}
+.U5 {
+    --bg: #BB7A00;
+}
+.U6 {
+    --bg: #0065AD;
+}
+.U7 {
+    --bg: #000;
+}
+.U8 {
+    --bg: #C2243B;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    z-index: 0;
+}
+.U8::after {
+    background-color: #EC6726;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    z-index: -1;
+    content: '';
+}
+.S1 {
+    --bg: #1B9FC6;
+}
+.S2 {
+    --bg: #69A338;
+}
+.S3 {
+    --bg: #973083;
+}
+.S4 {
+    --bg: #136680;
+}
+.S5 {
+    --bg: #136680;
+}
+.S6 {
+    --bg: #008D5E;
+}
+.S7 {
+    --bg: #883B32;
+}
+.S8 {
+    --bg: #2D2B29;
+}
+.SEV {
+    --bg: #95368C;
+}
+.TRAM {
+    --bg: #E30613;
+}
+.BUS {
+    --bg: #00586A;
+}
+
+.transport {
+    background-color: var(--bg);
+    color: #ffffff;
+    padding: 0 clamp(.25rem, calc(.13rem + .32vw), .38rem);
+    text-align: center;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    height: 20px;
+    border-radius: 4px;
+    white-space: nowrap;
+}

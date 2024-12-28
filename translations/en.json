@@ -1,0 +1,11 @@
+{
+    "MIN": "min",
+    "IN": "in",
+    "JETZT": "now",
+    "LOADING": "Loading ...",
+    "NO_STATION": "The name of the station is not correct, please check on mvg.de",
+    "NO_RESULTS": "No connections found",
+    "COULD_NOT_GET_DEPARTURE_DATA": "Could not get departure data",
+    "COULD_NOT_GET_STATION_DATA": "Could not get station data",
+    "COULD_NOT_GET_INTERRUPTION_DATA": "Could not get interruption data"
+}

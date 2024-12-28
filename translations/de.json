@@ -1,0 +1,11 @@
+{
+    "MIN": "Min.",
+    "IN": "in",
+    "JETZT": "Jetzt",
+    "LOADING": "Lädt ...",
+    "NO_STATION": "Der Name der station ist nicht korrekt, bitte überprüfe diesen auf mvg.de",
+    "NO_RESULTS": "Es wurden keine Verbindungen gefunden",
+    "COULD_NOT_GET_DEPARTURE_DATA": "Konnte keine Abfahrtsdaten abrufen",
+    "COULD_NOT_GET_STATION_DATA": "Konnte keine Stationsdaten abrufen",
+    "COULD_NOT_GET_INTERRUPTION_DATA": "Konnte keine Störungsmeldungen abrufen"
+}

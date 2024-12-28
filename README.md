@@ -5,179 +5,27 @@ MagicMirror² Module to monitor public transport (U-Bahn, Tram, Bus, S-Bahn) in 
 > [!CAUTION]
 > This magic mirror module is an independent project and is not affiliated with, endorsed by, or associated with MVG (Münchner Verkehrsgesellschaft mbH), the Munich public transportation company. Any use of data or information related to MVG services is for personal, non-commercial purposes and should comply with their terms of use.
 
-## Example
-
-|     |     |
-| --- | --- |
-|  **Stations names with arrival time**  | ![](.github/Example_1.png) | 
-```
-config: {
-    haltestelle: "Hauptbahnhof",
-    maxEntries: 10,             // 10 items on screen
-    updateInterval: 60000,      // 60 s
-    showIcons: false,            // Show transport type icon
-    transportTypesToShow: {
-        "ubahn": true,            // show ubahn route
-        "sbahn": false,            // show sbahn route
-        "bus": false,              // show bus route
-        "regional_bus": false,     // show regional bus route
-        "tram": false              // show tram route
-    },
-    ignoreStations: [],         // destination not to be shown
-    timeToWalk: 0,             // 10 min walking time to station. Default is 0
-    showWalkingTime: false,     // if the walking time should be included and the starting time is displayed
-    showTrainDepartureTime: true,     // show tran departure time
-    trainDepartureTimeFormat: "relative",   // format of the train departure time
-    walkingTimeFormat: "relative",    // format of the walking time
-}
-```
-|     |     |
-| --- | --- |
-| **Stations names with icons and arrival time** | ![](.github/Example_3.png) |
-
-```
-config: {
-    haltestelle: "Karlsplatz",
-    maxEntries: 15,             // 10 items on screen
-    updateInterval: 60000,      // 60 s
-    showIcons: true,            // Show transport type icon
-    transportTypesToShow: {
-        "ubahn": true,            // show ubahn route
-        "sbahn": true,            // show sbahn route
-        "bus": false,              // show bus route
-        "regional_bus": false,     // show regional bus route
-        "tram": true              // show tram route
-    },
-    ignoreStations: [],         // destination not to be shown
-    timeToWalk: 0,             // 10 min walking time to station. Default is 0
-    showWalkingTime: true,     // if the walking time should be included and the starting time is displayed
-    showTrainDepartureTime: true,     // show tran departure time
-    trainDepartureTimeFormat: "relative",   // format of the train departure time
-    walkingTimeFormat: "relative"    // format of the walking time
-}
-```
-|     |     |
-| --- | --- |
-|  **Stations names with icons, arrival time and walking time** | ![](.github/Example_4.png) |
-```
-config: {
-    haltestelle: "Karlsplatz",
-    maxEntries: 15,             // 10 items on screen
-    updateInterval: 60000,      // 60 s
-    showIcons: true,            // Show transport type icon
-    transportTypesToShow: {
-        "ubahn": true,            // show ubahn route
-        "sbahn": true,            // show sbahn route
-        "bus": true,              // show bus route
-        "regional_bus": false,     // show regional bus route
-        "tram": true              // show tram route
-    },
-    ignoreStations: [],         // destination not to be shown
-    timeToWalk: 0,             // 10 min walking time to station. Default is 0
-    showWalkingTime: true,     // if the walking time should be included and the starting time is displayed
-    showTrainDepartureTime: true,     // show tran departure time
-    trainDepartureTimeFormat: "absolute",   // format of the train departure time
-    walkingTimeFormat: "relative"    // format of the walking time
-}
-```
-
-|     |     |
-| --- | --- |
-| **Stations names with icons, arrival time and disruption marking** | ![](.github/Example_5.png) |
-```
-config: {
-    haltestelle: "Harras",
-    maxEntries: 10,             // 10 items on screen
-    updateInterval: 60000,      // 60 s
-    showIcons: true,            // Show transport type icon
-    transportTypesToShow: {
-        "ubahn": true,            // show ubahn route
-        "sbahn": true,            // show sbahn route
-        "bus": true,              // show bus route
-        "regional_bus": false,     // show regional bus route
-        "tram": false              // show tram route
-    },
-    ignoreStations: [],         // destination not to be shown
-    timeToWalk: 0,             // 10 min walking time to station. Default is 0
-    showWalkingTime: false,     // if the walking time should be included and the starting time is displayed
-    showTrainDepartureTime: true,     // show tran departure time
-    trainDepartureTimeFormat: "absolute",   // format of the train departure time
-    walkingTimeFormat: "relative",    // format of the walking time
-    showInterruptions: true,
-    showInterruptionsDetails: false,
-    countInterruptionsAsItemShown: false
-```
-
-|     |     |
-| --- | --- |
-| **Stations names with icons, arrival time, disruption marking and disruptions details** (disruption details are not counted as new lines)| ![](.github/Example_6.png) |
-```
-config: {
-    haltestelle: "Harras",
-    maxEntries: 10,             // 10 items on screen
-    updateInterval: 60000,      // 60 s
-    showIcons: true,            // Show transport type icon
-    transportTypesToShow: {
-        "ubahn": true,            // show ubahn route
-        "sbahn": true,            // show sbahn route
-        "bus": true,              // show bus route
-        "regional_bus": false,     // show regional bus route
-        "tram": false              // show tram route
-    },
-    ignoreStations: [],         // destination not to be shown
-    timeToWalk: 0,             // 10 min walking time to station. Default is 0
-    showWalkingTime: false,     // if the walking time should be included and the starting time is displayed
-    showTrainDepartureTime: true,     // show tran departure time
-    trainDepartureTimeFormat: "absolute",   // format of the train departure time
-    walkingTimeFormat: "relative",    // format of the walking time
-    showInterruptions: true,
-    showInterruptionsDetails: true,
-    countInterruptionsAsItemShown: false
-```
-
-|     |     |
-| --- | --- |
-| **Stations names with icons, arrival time, disruption marking and disruptions details** (disruption details are counted as new lines) | ![](.github/Example_7.png) |
-```
-config: {
-    haltestelle: "Harras",
-    maxEntries: 10,             // 10 items on screen
-    updateInterval: 60000,      // 60 s
-    showIcons: true,            // Show transport type icon
-    transportTypesToShow: {
-        "ubahn": true,            // show ubahn route
-        "sbahn": true,            // show sbahn route
-        "bus": true,              // show bus route
-        "regional_bus": false,     // show regional bus route
-        "tram": false              // show tram route
-    },
-    ignoreStations: [],         // destination not to be shown
-    timeToWalk: 0,             // 10 min walking time to station. Default is 0
-    showWalkingTime: false,     // if the walking time should be included and the starting time is displayed
-    showTrainDepartureTime: true,     // show tran departure time
-    trainDepartureTimeFormat: "absolute",   // format of the train departure time
-    walkingTimeFormat: "relative",    // format of the walking time
-    showInterruptions: true,
-    showInterruptionsDetails: true,
-    countInterruptionsAsItemShown: true
-```
-
-## Dependencies
-* instance of [MagicMirror²](https://github.com/MichMich/MagicMirror)
-* urlencode (linux: npm install urlencode)
-
 ## Installation
-1. Clone this repository in your MagicMirror installation into the folder modules.
-2. Rename plugin foler from 'MMM-mvg' to 'mvg'
-3. Install dependencies in main MagicMirror folder
-4. Add configuration block to your config.js:
+1. Clone the module into your MagicMirror module folder and execute `npm install` in the module's directory.
+```bash
+cd ~/MagicMirror/modules
+git clone https://github.com/KoblerS/MMM-MVG
+cd MMM-MVG
+npm install
 ```
+
+## Configuration
+
+To display the module insert it in the config.js file.
+
+### Simple configuration
+```javascript
 {
-    module: "mvg",
+    module: "MMM-MVG",
     position: "bottom_left",
     header: "MVG",
     config: {
-        haltestelle: "Hauptbahnhof",
+        station: "Hauptbahnhof",
         maxEntries: 10,             // 10 items on screen
         updateInterval: 60000,      // 60 s
         showIcons: true,            // Show transport type icon
@@ -203,13 +51,178 @@ config: {
         showInterruptionsDetails: false,		    // show details of interruptions in next line
         countInterruptionsAsItemShown: false,	    // count interruptions details lines as a line shown
     }
-},
+}
 ```
+
+## Examples
+
+|     |     |
+| --- | --- |
+|  **Stations names with arrival time**  | ![](.github/Example_1.png) | 
+```javascript
+config: {
+    station: "Hauptbahnhof",
+    maxEntries: 10,             // 10 items on screen
+    updateInterval: 60000,      // 60 s
+    showIcons: false,            // Show transport type icon
+    transportTypesToShow: {
+        "ubahn": true,            // show ubahn route
+        "sbahn": false,            // show sbahn route
+        "bus": false,              // show bus route
+        "regional_bus": false,     // show regional bus route
+        "tram": false              // show tram route
+    },
+    ignoreStations: [],         // destination not to be shown
+    timeToWalk: 0,             // 10 min walking time to station. Default is 0
+    showWalkingTime: false,     // if the walking time should be included and the starting time is displayed
+    showTrainDepartureTime: true,     // show tran departure time
+    trainDepartureTimeFormat: "relative",   // format of the train departure time
+    walkingTimeFormat: "relative",    // format of the walking time
+}
+```
+
+|     |     |
+| --- | --- |
+| **Stations names with icons and arrival time** | ![](.github/Example_3.png) |
+```javascript
+config: {
+    station: "Karlsplatz",
+    maxEntries: 15,             // 10 items on screen
+    updateInterval: 60000,      // 60 s
+    showIcons: true,            // Show transport type icon
+    transportTypesToShow: {
+        "ubahn": true,            // show ubahn route
+        "sbahn": true,            // show sbahn route
+        "bus": false,              // show bus route
+        "regional_bus": false,     // show regional bus route
+        "tram": true              // show tram route
+    },
+    ignoreStations: [],         // destination not to be shown
+    timeToWalk: 0,             // 10 min walking time to station. Default is 0
+    showWalkingTime: true,     // if the walking time should be included and the starting time is displayed
+    showTrainDepartureTime: true,     // show tran departure time
+    trainDepartureTimeFormat: "relative",   // format of the train departure time
+    walkingTimeFormat: "relative"    // format of the walking time
+}
+```
+
+|     |     |
+| --- | --- |
+|  **Stations names with icons, arrival time and walking time** | ![](.github/Example_4.png) |
+```javascript
+config: {
+    station: "Karlsplatz",
+    maxEntries: 15,             // 10 items on screen
+    updateInterval: 60000,      // 60 s
+    showIcons: true,            // Show transport type icon
+    transportTypesToShow: {
+        "ubahn": true,            // show ubahn route
+        "sbahn": true,            // show sbahn route
+        "bus": true,              // show bus route
+        "regional_bus": false,     // show regional bus route
+        "tram": true              // show tram route
+    },
+    ignoreStations: [],         // destination not to be shown
+    timeToWalk: 0,             // 10 min walking time to station. Default is 0
+    showWalkingTime: true,     // if the walking time should be included and the starting time is displayed
+    showTrainDepartureTime: true,     // show tran departure time
+    trainDepartureTimeFormat: "absolute",   // format of the train departure time
+    walkingTimeFormat: "relative"    // format of the walking time
+}
+```
+
+|     |     |
+| --- | --- |
+| **Stations names with icons, arrival time and disruption marking** | ![](.github/Example_5.png) |
+```javascript
+config: {
+    station: "Harras",
+    maxEntries: 10,             // 10 items on screen
+    updateInterval: 60000,      // 60 s
+    showIcons: true,            // Show transport type icon
+    transportTypesToShow: {
+        "ubahn": true,            // show ubahn route
+        "sbahn": true,            // show sbahn route
+        "bus": true,              // show bus route
+        "regional_bus": false,     // show regional bus route
+        "tram": false              // show tram route
+    },
+    ignoreStations: [],         // destination not to be shown
+    timeToWalk: 0,             // 10 min walking time to station. Default is 0
+    showWalkingTime: false,     // if the walking time should be included and the starting time is displayed
+    showTrainDepartureTime: true,     // show tran departure time
+    trainDepartureTimeFormat: "absolute",   // format of the train departure time
+    walkingTimeFormat: "relative",    // format of the walking time
+    showInterruptions: true,
+    showInterruptionsDetails: false,
+    countInterruptionsAsItemShown: false
+}
+```
+
+|     |     |
+| --- | --- |
+| **Stations names with icons, arrival time, disruption marking and disruptions details** (disruption details are not counted as new lines)| ![](.github/Example_6.png) |
+```javascript
+config: {
+    station: "Harras",
+    maxEntries: 10,             // 10 items on screen
+    updateInterval: 60000,      // 60 s
+    showIcons: true,            // Show transport type icon
+    transportTypesToShow: {
+        "ubahn": true,            // show ubahn route
+        "sbahn": true,            // show sbahn route
+        "bus": true,              // show bus route
+        "regional_bus": false,     // show regional bus route
+        "tram": false              // show tram route
+    },
+    ignoreStations: [],         // destination not to be shown
+    timeToWalk: 0,             // 10 min walking time to station. Default is 0
+    showWalkingTime: false,     // if the walking time should be included and the starting time is displayed
+    showTrainDepartureTime: true,     // show tran departure time
+    trainDepartureTimeFormat: "absolute",   // format of the train departure time
+    walkingTimeFormat: "relative",    // format of the walking time
+    showInterruptions: true,
+    showInterruptionsDetails: true,
+    countInterruptionsAsItemShown: false
+}
+```
+
+|     |     |
+| --- | --- |
+| **Stations names with icons, arrival time, disruption marking and disruptions details** (disruption details are counted as new lines) | ![](.github/Example_7.png) |
+```javascript
+config: {
+    station: "Harras",
+    maxEntries: 10,             // 10 items on screen
+    updateInterval: 60000,      // 60 s
+    showIcons: true,            // Show transport type icon
+    transportTypesToShow: {
+        "ubahn": true,            // show ubahn route
+        "sbahn": true,            // show sbahn route
+        "bus": true,              // show bus route
+        "regional_bus": false,     // show regional bus route
+        "tram": false              // show tram route
+    },
+    ignoreStations: [],         // destination not to be shown
+    timeToWalk: 0,             // 10 min walking time to station. Default is 0
+    showWalkingTime: false,     // if the walking time should be included and the starting time is displayed
+    showTrainDepartureTime: true,     // show tran departure time
+    trainDepartureTimeFormat: "absolute",   // format of the train departure time
+    walkingTimeFormat: "relative",    // format of the walking time
+    showInterruptions: true,
+    showInterruptionsDetails: true,
+    countInterruptionsAsItemShown: true
+}
+```
+
+## Dependencies
+* instance of [MagicMirror²](https://github.com/MichMich/MagicMirror)
+* Nothing else, module is small and simple! 🙌
 
 ## Config Options
 | **Option**        | **Description** |
 | --- | --- |
-| `haltestelle`     | Station for which you want to display data. <br> **Default:** `Hauptbahnhof` <br> **Source:** http://www.mvg-live.de/MvgLive/MvgLive.jsp |
+| `station`     | Station for which you want to display data. <br> **Default:** `Hauptbahnhof` <br> **Source:** https://www.mvg.de/meinhalt.html |
 | `maxEntries`      | Number of items shown in table. <br> **Default:** `8` |
 | `updateInterval`  | Update interval <br> **Default:** `60000` |
 | `ubahn`           | Show data for U-Bahn. <br> **Possible values:** `true` or `false` <br> **Default:** `true` |
