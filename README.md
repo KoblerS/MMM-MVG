@@ -10,8 +10,6 @@ MagicMirror² Module to monitor public transport (U-Bahn, Tram, Bus, S-Bahn) in 
 ```bash
 cd ~/MagicMirror/modules
 git clone https://github.com/KoblerS/MMM-MVG
-cd MMM-MVG
-npm install
 ```
 
 ## Configuration
@@ -216,7 +214,7 @@ config: {
 ```
 
 ## Dependencies
-* instance of [MagicMirror²](https://github.com/MichMich/MagicMirror)
+* instance of [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror)
 * Nothing else, module is small and simple! 🙌
 
 ## Config Options
