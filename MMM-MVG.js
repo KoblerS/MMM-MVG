@@ -321,8 +321,12 @@ Module.register("MMM-MVG", {
   // Override getHeader method.
   getHeader: function () {
     if (this.config.station !== "" || this.config.stationName !== "") {
+      let header = this.data.header ?? '';
+      if (header) {
+        header += ' ';
+      }
       return (
-        (this.data.header ?? '') +
+        header +
         (this.config.stationName === ""
           ? this.config.station
           : this.config.stationName)

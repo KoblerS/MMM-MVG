@@ -39,6 +39,10 @@ module.exports = NodeHelper.create({
 
   getDepartureInfo: function (payload) {
     const self = this;
+    if (payload.stationId == 0) {
+      console.warn("Station ID for the specified station (" + payload.station + ") is not available yet. Awaiting retrieval from the API.");
+      return;
+    }
     const args = {
       globalId: payload.stationId,
       limit: payload.maxEntries || 10,
@@ -51,9 +55,9 @@ module.exports = NodeHelper.create({
       method: "GET",
       headers: globals,
     })
-      .then((response) => {
+      .then(async (response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok " + response.statusText);
+          throw new Error(`Received unexpected response (${response.statusText}) from MVG api while retrieving departure data: ${await response.text()}`);
         }
         return response.json();
       })
@@ -82,9 +86,9 @@ module.exports = NodeHelper.create({
       method: "GET",
       headers: globals,
     })
-      .then((response) => {
+      .then(async (response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok " + response.statusText);
+          throw new Error(`Received unexpected response (${response.statusText}) from MVG api while retrieving station info: ${await response.text()}`);
         }
         return response.json();
       })
@@ -113,9 +117,9 @@ module.exports = NodeHelper.create({
       method: "GET",
       headers: globals,
     })
-      .then((response) => {
+      .then(async (response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok " + response.statusText);
+            throw new Error(`Received unexpected response (${response.statusText}) from MVG api while retrieving interruption data: ${await response.text()}`);
         }
         return response.json();
       })
