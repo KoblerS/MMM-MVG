@@ -21,6 +21,10 @@
     overflow: hidden;
 }
 
+.MMM-MVG table td {
+    vertical-align: middle;
+}
+
 .MMM-MVG tr.normal {
     color: white;
 }
@@ -29,35 +33,35 @@
     color: dimgray;
 }
 
-.MMM-MVG td.tram {
+.MMM-MVG td div.tram {
     background: url(resources/tram.svg) no-repeat 0 0;
     width: 30px;
-    padding-bottom: 5px;
+    height: 30px;
     background-size: 25px;
 }
 
-.MMM-MVG td.sbahn {
+.MMM-MVG td div.sbahn {
     background: url(resources/s-bahn.svg) no-repeat 0 0;
     width: 30px;
-    padding-bottom: 5px;
+    height: 30px;
     background-size: 25px;
 }
 
-.MMM-MVG td.bus, .MMM-MVG td.regional_bus {
+.MMM-MVG td div.bus, .MMM-MVG td div.regional_bus {
     background: url(resources/bus.svg) no-repeat 0 0;
     width: 30px;
-    padding-bottom: 5px;
+    height: 30px;
     background-size: 25px;
 }
 
-.MMM-MVG td.ubahn {
+.MMM-MVG td div.ubahn {
     background: url(resources/u-bahn.svg) no-repeat 0 0;
     width: 30px;
-    padding-bottom: 5px;
+    height: 30px;
     background-size: 25px;
 }
 
-.MMM-MVG td.empty {
+.MMM-MVG td div.empty {
     color: dimgray;
     font-size: 16px;
     width: 30px;
@@ -154,6 +158,7 @@
     font-weight: 700;
     line-height: 20px;
     height: 20px;
+    max-height: 20px;
     border-radius: 4px;
     white-space: nowrap;
 }

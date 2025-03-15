@@ -234,7 +234,7 @@ Module.register("MMM-MVG", {
   showIcons: function (product, showIcons) {
     let icons = "";
     if (showIcons) {
-      icons = "<td class='" + product.toLocaleLowerCase() + "'></td>";
+      icons = "<td><div class='" + product.toLocaleLowerCase() + "'></div></td>";
     }
     return icons;
   },
@@ -243,19 +243,19 @@ Module.register("MMM-MVG", {
     let badge = "";
     switch (product) {
       case "UBAHN":
-        badge = `<td class="transport ${label.toUpperCase()}">${label}</td>`;
+        badge = `<td><div class="transport ${label.toUpperCase()}"><span>${label}</span></div></td>`;
         break;
       case "SBAHN":
-        badge = `<td class="transport ${label.toUpperCase()}">${label}</td>`;
+        badge = `<td><div class="transport ${label.toUpperCase()}"><span>${label}</span></div></td>`;
         break;
       case "REGIONAL_BUS":
-        badge = `<td class="transport BUS">${label}</td>`;
+        badge = `<td><div class="transport BUS"><span>${label}</span></div></td>`;
         break;
       case "BUS":
-        badge = `<td class="transport BUS">${label}</td>`;
+        badge = `<td><div class="transport BUS"><span>${label}</span></div></td>`;
         break;
       case "TRAM":
-        badge = `<td class="transport TRAM">${label}</td>`;
+        badge = `<td><div class="transport TRAM"><span>${label}</span></div></td>`;
         break;
       default:
         badge = "";
