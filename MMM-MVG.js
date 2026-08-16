@@ -356,11 +356,12 @@ Module.register("MMM-MVG", {
         break;
 
       case "ERROR":
-        Log.error(payload.error);
-        this.error = payload.text;
+        Log.error("MMM-MVG Error:", payload);
+        this.error = payload;
+        break;
 
       default:
-        Log.error();
+        Log.error("MMM-MVG: Unknown notification", notification);
     }
     this.updateDom();
   },

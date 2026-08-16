@@ -54,6 +54,7 @@ module.exports = NodeHelper.create({
     fetch(`${fibAPI}/departures?${query}`, {
       method: "GET",
       headers: globals,
+      signal: AbortSignal.timeout(10000),
     })
       .then(async (response) => {
         if (!response.ok) {
@@ -85,6 +86,7 @@ module.exports = NodeHelper.create({
     fetch(`${fibAPI}/locations?${query}`, {
       method: "GET",
       headers: globals,
+      signal: AbortSignal.timeout(10000),
     })
       .then(async (response) => {
         if (!response.ok) {
@@ -107,6 +109,11 @@ module.exports = NodeHelper.create({
           "ERROR",
           "COULD_NOT_GET_STATION_DATA"
         );
+        // Retry after 30 seconds
+        setTimeout(() => {
+          console.log("Retrying station info for:", payload.station);
+          self.getStationInfo(payload);
+        }, 30000);
       });
   },
 
@@ -116,6 +123,7 @@ module.exports = NodeHelper.create({
     fetch(`${fibAPI}/messages`, {
       method: "GET",
       headers: globals,
+      signal: AbortSignal.timeout(10000),
     })
       .then(async (response) => {
         if (!response.ok) {
